@@ -1,9 +1,9 @@
 from solution import Solution
 
 
-def linear(y, step_matrix_generator, transformation_matirx, steps=10, h=0.1):
+def linear(y, step_matrix_generator, transformation_matrix, steps=10, h=0.1):
     dims = len(y) - 2
-    step_matrix = transformation_matirx @ step_matrix_generator(dims, h)
+    step_matrix = transformation_matrix @ step_matrix_generator(dims, h)
     output_list = []
 
     y_n = y.copy()
