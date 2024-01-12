@@ -2,17 +2,17 @@ import numpy as np
 
 
 class Solution:
-    def __init__(self, input_dict: dict):
-        solution_dict = {key: input_dict[key] for key in sorted(input_dict)}
+    def __init__(self, input_list: list):
+        solution_list = sorted(input_list, key=lambda x: x[1])
 
-        dims = len(list(solution_dict.values())[0])
-        self.x = np.array(list(solution_dict.keys()))
+        dims = len(solution_list[0]) - 2
+        self.x = np.array([x[1] for x in input_list])
 
         value_lists = [[] for _ in range(dims)]
 
-        for v in solution_dict.values():
+        for v in input_list:
             for i in range(dims):
-                value_lists[i].append(v[i])
+                value_lists[i].append(v[i + 2])
 
         for i in range(dims):
             self.__dict__[f"y_{i}"] = np.array(value_lists[i])
